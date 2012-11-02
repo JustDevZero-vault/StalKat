@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="stalkat.svg">images/stalkat.svg</file>
+    </qresource>
+</RCC>

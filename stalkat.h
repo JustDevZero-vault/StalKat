@@ -19,4 +19,4 @@ private:
     Ui::StalKat *ui;
 };
 
-#endif // STALKATVIEW_H
+#endif // STALKAT

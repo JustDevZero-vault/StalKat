@@ -10,9 +10,17 @@ TARGET = Stalkat
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
-        stalkatview.cpp
+SOURCES +=\
+        skfunctions.cpp \
+    main.cxx \
+    stalkat.cpp
 
-HEADERS  += stalkatview.h
+HEADERS  += \
+        skdefs.h \
+        skfunctions.h \
+    stalkat.h
 
 FORMS    += stalkatbase.ui
+
+RESOURCES += \
+    resources.qrc
