@@ -11,14 +11,14 @@ TEMPLATE = app
 
 
 SOURCES +=\
-        skfunctions.cpp \
     main.cxx \
+    skfunctions.cpp \
     stalkat.cpp
 
 HEADERS  += \
         skdefs.h \
         skfunctions.h \
-    stalkat.h
+        stalkat.h
 
 FORMS    += stalkatbase.ui
 

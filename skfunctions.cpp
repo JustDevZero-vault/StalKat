@@ -1,8 +1,7 @@
 /*
- * skfunctions.cpp
- * StalKat: Utility for registering when the computer is switched on
+ * template.cpp
+ * Translatorman: Utility for translating or just writing, manpages into other languages.
  * Copyright (C) 2012  Daniel Ripoll <info@danielripoll.es>
- * http://danielripoll.es
 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -58,7 +57,7 @@ void skMsgError ( QString cad, QWidget *parent )
 
 
 
-void skWebBrowser(const QString &uri, const QString &defbrowser) {
+int skWebBrowser(const QString &uri, const QString &defbrowser) {
 
     QString browser = "";
     /*if (browser.isEmpty()) {
@@ -76,12 +75,14 @@ void skWebBrowser(const QString &uri, const QString &defbrowser) {
 
     if (defbrowser.isEmpty()) {
         QDesktopServices::openUrl(QUrl(uri, QUrl::TolerantMode));
+        return 0;
     }
 
     else {
         browser = defbrowser;
         QString webcommand = commas + browser + commas + QUrl(uri, QUrl::TolerantMode).toString() + inbackground;
-        system ( webcommand.toAscii().data() );
+        int result = system ( webcommand.toAscii().data() );
+        return result;
     } // end if
 
 }
@@ -91,8 +92,8 @@ void skWebBrowser(const QString &uri, const QString &defbrowser) {
 
 #ifdef Q_OS_WIN32
 /// Converts QString to WCHAR (MS-Windows only function).
-wchar_t* SkQStringToWCHAR (QString inString) {
-    SK_FUNC_DEBUG
+wchar_t* skQStringToWCHAR (QString inString) {
+    BL_FUNC_DEBUG
 
 	if (inString.isEmpty())
 		return NULL;
@@ -114,10 +115,10 @@ QString skGetEnv( const char *varName ) {
 /// In MS-Windows there are some problems with UTF-8
 #ifdef Q_OS_WIN32
 	DWORD length;
-	length = GetEnvironmentVariableW(SkQStringToWCHAR(varName), NULL, 0);
+	length = GetEnvironmentVariableW(BlQStringToWCHAR(varName), NULL, 0);
 
 	wchar_t *variable = new wchar_t[length];
-	GetEnvironmentVariableW(SkQStringToWCHAR(varName), variable, length );
+	GetEnvironmentVariableW(BlQStringToWCHAR(varName), variable, length );
 
 	return QString::fromWCharArray(variable);
 #else
@@ -223,11 +224,10 @@ bool skMoveFile( const QString &oldName, const QString &newName )
         if(!skCopyFile(oldName, newName))
         return false;
 
-        // Copy exit correcsky, delete the original
+        // Copy exit correctly, delete the original
         skRemove(oldName);
     } // end if
 
     // It was moved, or copied and moved with exit.
     return true;
 }
-

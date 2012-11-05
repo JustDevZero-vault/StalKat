@@ -1,8 +1,7 @@
 /*
- * skfunctions.ch
- * StalKat: Utility for registering when the computer is switched on
+ * template.cpp
+ * Translatorman: Utility for translating or just writing, manpages into other languages.
  * Copyright (C) 2012  Daniel Ripoll <info@danielripoll.es>
- * http://danielripoll.es
 
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,7 +15,7 @@
 
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * 
  */
 
 #ifndef SKFUNCTIONS_H
@@ -45,7 +44,7 @@ void SK_EXPORT skMsgWarning ( QString cad, QWidget *parent = 0 );
 void SK_EXPORT skMsgError ( QString cad, QWidget *parent = 0 );
 
 
-void SK_EXPORT skWebBrowser(const QString &uri, const QString &defbrowser="");
+int SK_EXPORT skWebBrowser(const QString &uri, const QString &defbrowser="");
 
 QString SK_EXPORT skGetEnv( const char *varName );
 
@@ -56,7 +55,7 @@ wchar_t* SK_EXPORT skQStringToWCHAR (QString inString);
 
 
 /// Copies a file from one location to another
-bool SK_EXPORT skCopyFile(const QString &oldName, const QString &newName);
+bool SK_EXPORT skopyFile(const QString &oldName, const QString &newName);
 
 /// Moves a file from one location to another
 bool SK_EXPORT skMoveFile(const QString &oldName, const QString &newName);
@@ -66,4 +65,4 @@ bool SK_EXPORT skRemove(const QString &filetoremove);
 
 
 
-#endif // SKFUNCTIONS_H
+#endif // TLFUNCTIONS_H

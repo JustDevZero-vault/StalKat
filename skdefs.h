@@ -37,6 +37,7 @@
 #define SK_EXPORT __declspec(dllimport)
 #endif // SK_STALKAT
 
+#else
 
 #define SK_EXPORT
 
